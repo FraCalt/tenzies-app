@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+}
+main {
+  display: flex;
+  max-width: 460px;
+  height: 478px;
+  margin: 10% auto;
+  background-color: rgb(69, 155, 177);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 10px;
+  width: 100%;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgb(234, 234, 234);
+}
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  margin: 50px auto;
+}
+
+.die-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 0 5px 9px red;
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+}
+.die-num {
+  color: rgb(146, 8, 8);
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: lightblue;
+  font-size: 1.7rem;
+  font-family: sans-serif;
+  border-radius: 10px;
+}
