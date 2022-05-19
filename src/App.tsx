@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import startGame from "./functions/startGame";
 import toggleTheme from "./functions/toggleTheme";
-import "./style.css";
+import "./styles/style.css";
 import styles from "./styles/darkTheme";
 
 const App = () => {
