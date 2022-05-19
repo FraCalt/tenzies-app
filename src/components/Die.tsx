@@ -4,7 +4,7 @@ const Die = (props: any) => {
   const stylesHeld = {
     backgroundColor: "lightgreen",
   };
-  console.log(props);
+  
   return (
     <div
       className="die-div"

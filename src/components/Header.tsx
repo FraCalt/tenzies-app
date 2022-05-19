@@ -9,11 +9,15 @@ const Header = (props: any) => {
       style={props.darkMode ? { ...styles.container } : {}}
     >
       <div className="switch-box">
-        {props.darkMode ? <BsSun /> : <BsFillMoonFill />}
         {props.darkMode ? (
-          <BsToggleOn className="switch-box" onClick={props.toggle} />
+          <BsSun className="switch-icon" />
         ) : (
-          <BsToggleOff className="switch-box" onClick={props.toggle} />
+          <BsFillMoonFill className="switch-icon" />
+        )}
+        {props.darkMode ? (
+          <BsToggleOn className="switch" style={{color:"lightcyan"}} onClick={props.toggle} />
+        ) : (
+          <BsToggleOff className="switch" onClick={props.toggle} />
         )}
       </div>
       <h1
@@ -23,8 +27,8 @@ const Header = (props: any) => {
         TENZIES
       </h1>
       <p className="header-description">
-        Roll until all dice are the same. Click each die to freeze it at its
-        current value between rolls.
+        Roll until <strong>all dice</strong> are the <strong>same</strong>.
+        Click each die to freeze it at its current value between rolls.
       </p>
     </div>
   );

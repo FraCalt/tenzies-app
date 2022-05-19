@@ -6,6 +6,7 @@ import roll from "../functions/roll";
 import newGame from "../functions/newGame";
 import styles from "../styles/darkTheme";
 import { BsArrowClockwise } from "react-icons/bs";
+import ReactConfetti from "react-confetti";
 
 const Hero = (props: any) => {
   const [dice, setDice] = React.useState(newDice());
@@ -44,7 +45,7 @@ const Hero = (props: any) => {
         }
       >
         {tenzies ? (
-          <p
+          <h4
             style={
               props.darkMode
                 ? { ...styles.rollIconDarkMode }
@@ -52,7 +53,7 @@ const Hero = (props: any) => {
             }
           >
             New Game
-          </p>
+          </h4>
         ) : (
           <BsArrowClockwise
             size={"27px"}
@@ -64,7 +65,12 @@ const Hero = (props: any) => {
           />
         )}
       </button>
-      {tenzies && <h3>{"CONGRATULATION YOU WON!!!"}</h3>}
+      {tenzies && (
+        <div>
+          <ReactConfetti />
+          <h3>{"CONGRATULATION YOU WON!!!"}</h3>
+        </div>
+      )}
     </div>
   );
 };

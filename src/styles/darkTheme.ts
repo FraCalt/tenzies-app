@@ -1,6 +1,12 @@
 const styles = {
+  mainDarkMode: {
+    backgroundColor: "#4b4761",
+    color: "white",
+    borderStyle: "groove",
+    borderColor: "darkcyan",
+  },
   container: {
-    backgroundColor: "#2B283A",
+    backgroundColor: "#1a1823",
     color: "",
   },
   dieDarkMode: {

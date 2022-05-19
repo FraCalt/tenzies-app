@@ -1,6 +1,14 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: sans-serif;
+}
+.wallpaper {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
 }
 main {
   display: flex;
@@ -10,6 +18,11 @@ main {
   max-width: 460px;
   height: fit-content;
   margin: 5% auto;
+  padding: 20px;
+  border: 5px;
+  border-color: rgb(156, 30, 30);
+  border-style: groove;
+  border-radius: 20px;
   background-color: #2b283a;
 }
 .header-container {
@@ -84,8 +97,12 @@ button {
   flex-direction: row;
   align-self: flex-end;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 20px;
+}
+.switch-icon {
+  font-size: medium;
 }
 .switch {
+  font-size: large;
   cursor: pointer;
 }
