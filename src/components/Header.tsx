@@ -15,7 +15,11 @@ const Header = (props: any) => {
           <BsFillMoonFill className="switch-icon" />
         )}
         {props.darkMode ? (
-          <BsToggleOn className="switch" style={{color:"lightcyan"}} onClick={props.toggle} />
+          <BsToggleOn
+            className="switch"
+            style={{ color: "lightcyan" }}
+            onClick={props.toggle}
+          />
         ) : (
           <BsToggleOff className="switch" onClick={props.toggle} />
         )}

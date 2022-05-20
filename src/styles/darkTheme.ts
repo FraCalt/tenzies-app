@@ -28,5 +28,20 @@ const styles = {
     textShadow: "0 5px 11px cyan",
     color: "lightcyan",
   },
+  sideContainerDarkMode: {
+    color: "white",
+  },
+  sideTitleDarkMode: {
+    borderRadius: "10px",
+  },
+  playerListDarkMode: {
+    backgroundColor: "#1a1823",
+    color: "white",
+  },
+  inputDarkTheme: {
+    backgroundColor: "#1a1823",
+    color: "white",
+    borderColor: "darkgrey"
+  },
 };
 export default styles;
