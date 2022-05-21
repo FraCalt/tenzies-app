@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../styles/darkTheme";
 import "../styles/style.css";
 
-const Players = (props: any) => {
+const Leaderboard = (props: any) => {
   const [players, setPlayers] = React.useState<any>([]);
 
   React.useEffect(() => {
@@ -15,11 +15,9 @@ const Players = (props: any) => {
     setPlayers(arrayFromStorage);
   }, []);
 
-  console.log(players, localStorage.length);
-
   const renderList = players.map((item: any) => (
     <li key={nanoid()}>
-      {item.realName} {"--"} {item.nickname}{" "}
+    {item.realName} {item.nickname} {item.tenzies&&"TENZIES"}
     </li>
   ));
 
@@ -33,16 +31,16 @@ const Players = (props: any) => {
           className="header-title"
           style={props.darkMode ? { ...styles.titleDarkMode } : {}}
         >
-          Players
+          Top Players
         </h1>
       </div>
       <div
-        className="players-list"
+        className="list-container"
         style={props.darkMode ? { ...styles.playerListDarkMode } : {}}
       >
-        {renderList}
+        <ol className="list">{renderList}</ol>
       </div>
     </div>
   );
 };
-export default Players;
+export default Leaderboard;

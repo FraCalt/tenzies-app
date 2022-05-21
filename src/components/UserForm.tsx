@@ -4,29 +4,23 @@ import "../styles/style.css";
 import styles from "../styles/darkTheme";
 
 const UserForm = (props: any) => {
-  const [formData, setFormData] = React.useState({
-    nickname: "",
-    realName: "",
-  });
-  const [hideForm, setHideForm] = React.useState(true);
 
   const handleOnChange = (event: any) => {
-    setFormData((prevFormData) => {
+    props.setUser((prevUser: any) => {
       return {
-        ...prevFormData,
+        ...prevUser,
         [event.target.name]: event.target.value,
       };
     });
   };
 
   const handleSubmit = () => {
-    localStorage.setItem(nanoid(), JSON.stringify(formData));
-    setHideForm(false);
+    props.setHideForm(false);
   };
 
   return (
     <div className="main" style={props.darkMode ? styles.mainDarkMode : {}}>
-      {hideForm ? (
+      {props.hideForm ? (
         <>
           <div
             className="side-title"
@@ -44,8 +38,9 @@ const UserForm = (props: any) => {
               className="input"
               style={props.darkMode ? { ...styles.inputDarkTheme } : {}}
               type="text"
-              value={formData.nickname}
-              placeholder="Nickname"
+              value={props.user.nickname}
+              placeholder="Nickname - required"
+              required
               onChange={handleOnChange}
               name="nickname"
             />
@@ -53,8 +48,8 @@ const UserForm = (props: any) => {
               className="input"
               style={props.darkMode ? { ...styles.inputDarkTheme } : {}}
               type="text"
-              value={formData.realName}
-              placeholder="Real Name"
+              value={props.user.realName}
+              placeholder="Real Name - optional"
               onChange={handleOnChange}
               name="realName"
             />
@@ -62,7 +57,7 @@ const UserForm = (props: any) => {
               onClick={handleSubmit}
               style={props.darkMode ? { ...styles.btnDarkMode } : {}}
             >
-              Confirm
+              {props.user.nickname? "Confirm":"Skip This"}
             </button>
           </div>
         </>
