@@ -19,7 +19,8 @@ const styles = {
   btnDarkMode: {
     backgroundColor: "lightcyan",
     boxShadow: "0 5px 9px cyan",
-    color: "#2B283A",
+    color: "darkblue",
+    fontWeight: 700,
   },
   rollIconDarkMode: {
     color: "darkblue",
@@ -41,7 +42,7 @@ const styles = {
   inputDarkTheme: {
     backgroundColor: "#1a1823",
     color: "white",
-    borderColor: "darkgrey"
+    borderColor: "darkgrey",
   },
 };
 export default styles;

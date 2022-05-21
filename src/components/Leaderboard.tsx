@@ -3,23 +3,32 @@ import React from "react";
 import styles from "../styles/darkTheme";
 import "../styles/style.css";
 
-const Players = (props: any) => {
+const Leaderboard = (props: any) => {
   const [players, setPlayers] = React.useState<any>([]);
 
   React.useEffect(() => {
-    const arrayFromStorage = [];
+    const arrayFromStorage: any[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       let tempKey = localStorage.key(i);
-      arrayFromStorage.push(JSON.parse(localStorage.getItem(tempKey!)!));
+      let item = JSON.parse(localStorage.getItem(tempKey!)!);
+      item.tenzies && arrayFromStorage.push(item);
+      arrayFromStorage.sort((item1,item2) => item1.rollCount-item2.rollCount );
     }
     setPlayers(arrayFromStorage);
   }, []);
 
-  console.log(players, localStorage.length);
-
   const renderList = players.map((item: any) => (
     <li key={nanoid()}>
-      {item.realName} {"--"} {item.nickname}{" "}
+      <div className="text-list">
+        <p>
+          {item.realName && "name:"}
+          {item.realName}
+        </p>
+        <p>aka:{item.nickname}</p>
+        <p>held:{item.heldCount}</p>
+        <p>rolls:{item.rollCount}</p>
+        <p>{item.tenzies && "Complete"}</p>
+      </div>
     </li>
   ));
 
@@ -33,16 +42,16 @@ const Players = (props: any) => {
           className="header-title"
           style={props.darkMode ? { ...styles.titleDarkMode } : {}}
         >
-          Players
+          Leaderboard
         </h1>
       </div>
       <div
-        className="players-list"
+        className="list-container"
         style={props.darkMode ? { ...styles.playerListDarkMode } : {}}
       >
-        {renderList}
+        <ol className="list">{renderList}</ol>
       </div>
     </div>
   );
 };
-export default Players;
+export default Leaderboard;

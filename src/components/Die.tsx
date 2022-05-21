@@ -4,7 +4,12 @@ const Die = (props: any) => {
   const stylesHeld = {
     backgroundColor: "lightgreen",
   };
-  
+
+  const clickHandler = () => {
+    props.hold();
+    props.count();
+  };
+
   return (
     <div
       className="die-div"
@@ -17,7 +22,7 @@ const Die = (props: any) => {
           ? { ...styles.dieDarkMode }
           : {}
       }
-      onClick={props.hold}
+      onClick={clickHandler}
     >
       <h1
         className="die-num"

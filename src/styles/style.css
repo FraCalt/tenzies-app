@@ -3,6 +3,7 @@ body {
   font-family: sans-serif;
 }
 .wallpaper {
+  z-index: -2;
   position: absolute;
   display: flex;
   width: 100%;
@@ -10,6 +11,31 @@ body {
   text-align: center;
   align-items: center;
   padding: 0 auto;
+}
+.dice-image {
+  position: fixed;
+  z-index: -1;
+  margin: 0 35%;
+  filter: blur(4px);
+  width: 20%;
+  border-radius: 100%;
+}
+.dice-image:hover {
+  position: fixed;
+  z-index: -1;
+  margin: 0 35%;
+  background-color: transparent;
+  animation: myRotation 2s;
+}
+@keyframes myRotation {
+  0% {
+  }
+  50% {
+    filter: blur(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 main {
   min-width: 460px;
@@ -21,7 +47,7 @@ main {
   justify-content: center;
   max-width: 460px;
   height: fit-content;
-  margin: 5% auto;
+  margin: 0 auto;
   padding: 20px;
   border: 5px;
   border-color: rgb(156, 30, 30);
@@ -50,7 +76,7 @@ main {
   text-align: center;
   margin: 5px 5px;
 }
-.hero-container {
+.dicebox-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +108,12 @@ main {
 .die-num {
   color: rgb(146, 8, 8);
 }
-
+.buttons-box {
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+  justify-content: center;
+}
 button {
   display: flex;
   align-items: center;
@@ -90,17 +121,20 @@ button {
   min-width: 100px;
   height: 40px;
   margin: 0 auto 15px;
-  color: #2b283a;
+  color: darkred;
   box-shadow: 0 5px 9px red;
   font-size: 1rem;
   border-radius: 10px;
+  font-weight: 700;
   cursor: pointer;
 }
 .switch-box {
   display: flex;
+  position: absolute;
   flex-direction: row;
-  align-self: flex-end;
+  align-self: flex-start;
   align-items: center;
+  margin: 20px 20px;
   font-size: 20px;
 }
 .switch-icon {
@@ -121,22 +155,34 @@ button {
   gap: 15px;
   margin: 0px 10px;
 }
-.players-list {
+.list-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 5px 25px;
   gap: 10px;
-  padding: 10px 25px;
+  padding: 0 5px;
   border-radius: 10px;
   background-color: aliceblue;
 }
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .input {
   text-align: center;
-  font-size: 1.1rem;
-  max-width: 150px;
-  min-width: 100px;
+  font-size: 0.9rem;
+  max-width: 170px;
+  min-width: 150px;
   height: 20px;
   border-radius: 10px;
   border: 2px solid lightgrey;
+}
+.text-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  font-size: medium;
 }
