@@ -1,6 +1,4 @@
-import newDice from "./newDice";
-
-const newGame = (setDiceFunction: Function, setTenziesFunction: Function) => (
-  setDiceFunction(newDice()), setTenziesFunction(false)
-);
+const newGame = () => {
+  location.reload();
+};
 export default newGame;

@@ -7,17 +7,28 @@ const Leaderboard = (props: any) => {
   const [players, setPlayers] = React.useState<any>([]);
 
   React.useEffect(() => {
-    const arrayFromStorage = [];
+    const arrayFromStorage: any[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       let tempKey = localStorage.key(i);
-      arrayFromStorage.push(JSON.parse(localStorage.getItem(tempKey!)!));
+      let item = JSON.parse(localStorage.getItem(tempKey!)!);
+      item.tenzies && arrayFromStorage.push(item);
+      arrayFromStorage.sort((item1,item2) => item1.rollCount-item2.rollCount );
     }
     setPlayers(arrayFromStorage);
   }, []);
 
   const renderList = players.map((item: any) => (
     <li key={nanoid()}>
-    {item.realName} {item.nickname} {item.tenzies&&"TENZIES"}
+      <div className="text-list">
+        <p>
+          {item.realName && "name:"}
+          {item.realName}
+        </p>
+        <p>aka:{item.nickname}</p>
+        <p>held:{item.heldCount}</p>
+        <p>rolls:{item.rollCount}</p>
+        <p>{item.tenzies && "Complete"}</p>
+      </div>
     </li>
   ));
 
@@ -31,7 +42,7 @@ const Leaderboard = (props: any) => {
           className="header-title"
           style={props.darkMode ? { ...styles.titleDarkMode } : {}}
         >
-          Top Players
+          Leaderboard
         </h1>
       </div>
       <div

@@ -38,7 +38,7 @@ const UserForm = (props: any) => {
               className="input"
               style={props.darkMode ? { ...styles.inputDarkTheme } : {}}
               type="text"
-              value={props.user.nickname}
+              value={props.user.nickname?props.user.nickname:""}
               placeholder="Nickname - required"
               required
               onChange={handleOnChange}

@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import React from "react";
+import ReactConfetti from "react-confetti";
 import Hero from "./components/Hero";
 import Leaderboard from "./components/Leaderboard";
 import SwitchTheme from "./components/SwitchTheme";
@@ -15,16 +16,16 @@ const App = () => {
     id: nanoid(),
     heldCount: 0,
     rollCount: 0,
+    tenzies: false,
   });
 
-  console.log(user);
 
   return (
     <div
       className="wallpaper"
       style={darkMode ? { backgroundColor: "#1a1823" } : {}}
     >
-      <img className="dice-image" src="/images/die.png"/>
+      <img className="dice-image" src="/images/die.png" />
       <SwitchTheme
         darkMode={darkMode}
         toggle={() => toggleTheme(setDarkMode)}
@@ -41,13 +42,20 @@ const App = () => {
           <Leaderboard darkMode={darkMode} user={user} />
         </>
       ) : (
-        <Hero
-          start={start}
-          setStart={setStart}
-          darkMode={darkMode}
-          user={user}
-          setUser={setUser}
-        />
+        <>
+          <Hero
+            start={start}
+            setStart={setStart}
+            darkMode={darkMode}
+            user={user}
+            setUser={setUser}
+          />
+          {user.tenzies && (
+            <div>
+              <ReactConfetti />
+            </div>
+          )}
+        </>
       )}
     </div>
   );
