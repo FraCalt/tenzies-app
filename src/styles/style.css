@@ -3,6 +3,7 @@ body {
   font-family: sans-serif;
 }
 .wallpaper {
+  z-index: -2;
   position: absolute;
   display: flex;
   width: 100%;
@@ -10,6 +11,31 @@ body {
   text-align: center;
   align-items: center;
   padding: 0 auto;
+}
+.dice-image {
+  position: fixed;
+  z-index: -1;
+  margin: 0 40%;
+  filter: blur(4px);
+  width:20%;
+  border-radius: 100%;
+}
+.dice-image:hover {
+  position: fixed;
+  z-index: -1;
+  margin: 0 40%;
+  background-color: transparent;
+  animation: myRotation 10s;
+}
+@keyframes myRotation {
+  0% {
+  }
+  50% {
+    filter: blur(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 main {
   min-width: 460px;

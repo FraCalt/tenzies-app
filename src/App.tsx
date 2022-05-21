@@ -24,6 +24,7 @@ const App = () => {
       className="wallpaper"
       style={darkMode ? { backgroundColor: "#1a1823" } : {}}
     >
+      <img className="dice-image" src="/images/die.png"/>
       <SwitchTheme
         darkMode={darkMode}
         toggle={() => toggleTheme(setDarkMode)}
